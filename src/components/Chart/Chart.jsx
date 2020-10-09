@@ -14,16 +14,20 @@ const Chart = () => {
             setDailyData(await fetchDailyData());
         }
 
+        console.log(dailyData);
+
         fetchAPI();
     });
 
     const lineChart = (
-        <Line 
-            data={{
-                labels: '',
-                datasets: [{}, {}],
-            }}
-        />
+        dailyData[0] 
+        ? (
+            <Line 
+                data={{
+                    labels: '',
+                    datasets: [{}, {}],
+                }}
+            />) : null
     );
 
     return(
